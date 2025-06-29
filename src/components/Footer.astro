@@ -1,0 +1,21 @@
+---
+import Social from "./Social.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <p>Learn more about my projects at:</p>
+  <Social platform="github" username="BadNamingSystem" />
+  <Social platform="youtube" username="astrodotbuild" />
+  <Social platform="twitter" username="astrodotbuild" />
+  <p><em>{currentYear} &copy; Vlad Claici </em></p>
+</footer>
+
+<style>
+    Footer {
+        display:flex
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+</style>

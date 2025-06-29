@@ -1,4 +1,8 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
 const pageTitle = "My Astro learning blog";
 ---
 
@@ -11,19 +15,19 @@ const pageTitle = "My Astro learning blog";
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <h1>My Astro learning blog</h1>
+    <Header />
+    <h1>My Astro learning blog!</h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet animi
-      magnam nulla voluptate culpa consequatur impedit aliquam vero beatae fugit
-      itaque, vel quibusdam ea voluptates numquam sint, iste omnis facilis!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet animi magnam
+      nulla voluptate culpa consequatur impedit aliquam vero beatae fugit itaque, vel
+      quibusdam ea voluptates numquam sint, iste omnis facilis!
     </p>
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
       <li><a href="/posts/post-1/">Post 1</a></li>
-      <li><a href="/posts.post-2/">Post 2</a></li>
-      <li><a href="/posts.post-3/">Post 3</a></li>
+      <li><a href="/posts/post-2/">Post 2</a></li>
+      <li><a href="/posts/post-3/">Post 3</a></li>
     </ul>
+    <Footer />
   </body>
 </html>
