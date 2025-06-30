@@ -1,5 +1,5 @@
 html {
-  background-color: bisque;
+  background-color: hsl(0, 0%, 85%);
   font-family: sans-serif;
 }
 
@@ -21,6 +21,19 @@ h1 {
 }
 
 /* nav styles */
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #ff9776;
+}
+
 .nav-links {
   width: 100%;
   top: 5rem;
@@ -35,6 +48,7 @@ h1 {
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
+  color: black;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
