@@ -1,28 +1,39 @@
 ---
-// Layout for the page
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 
+// Astro will call this function at build time to generate dynamic routes.
+// Used to create one page for each unique blog tag.
 export async function getStaticPaths() {
-
+  // 1. Load all markdown files from the /posts folder.
+  //    import.meta.glob grabs all matching files,
+  //    { eager: true } makes sure they are loaded immediately.
   const allPosts = Object.values(import.meta.glob("../posts/*.md", { eager: true }));
 
+  // 2. Extract all tags from the posts.
+  //    Each post has an array of tags, so we flatten them into a single list.
+  //    Then we use Set to remove duplicate tags.
   const uniqueTags = [
     ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
   ];
 
+  // 3. For each tag, filter the posts that include it,
+  //    and return an object that defines a route (params)
+  //    and provides the list of posts for that tag (props).
   return uniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post: any) =>
       post.frontmatter.tags.includes(tag)
     );
     return {
-      params: { tag },
-      props: { posts: filteredPosts },
+      params: { tag }, // This creates a URL like /tags/<tag>
+      props: { posts: filteredPosts }, // Pass these posts to the page component
     };
   });
 }
 
-// Destructure the tag value from the URL
+// Astro provides `params` and `props` to this page at build time:
+// - `tag` comes from the URL (e.g. /tags/astro → tag = "astro")
+// - `posts` is the filtered list of posts with that tag (from getStaticPaths)
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
