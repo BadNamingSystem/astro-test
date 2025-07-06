@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear();
   <Social platform="github" username="BadNamingSystem" />
   <Social platform="youtube" username="astrodotbuild" />
   <Social platform="twitter" username="astrodotbuild" />
-  <p><em>{currentYear} &copy; Vlad Claici </em></p>
+  <p class="copyright"><em>{currentYear} &copy; Vlad Claici </em></p>
 </footer>
 
 <style>
@@ -17,5 +17,8 @@ const currentYear = new Date().getFullYear();
         display:flex
         gap: 1rem;
         margin-top: 2rem;
+    }
+    Footer .copyright {
+        padding-bottom: 30px;    
     }
 </style>
